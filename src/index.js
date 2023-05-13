@@ -17,12 +17,18 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route
-                    path="https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay/"
+                    path="/"
                     element={<App />}
+                    basename={
+                        "https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay"
+                    }
                 />
                 <Route
-                    path="https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay//done"
+                    path="/done"
                     element={<Done />}
+                    basename={
+                        "https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay"
+                    }
                 />
             </Routes>
         </BrowserRouter>
