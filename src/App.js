@@ -2,74 +2,88 @@ import logo from "./logo.svg";
 import "./App.css";
 import styled from "styled-components";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import Done from "./Done";
 
 function App() {
     const [searchParams, setSearchParams] = useSearchParams();
+    const [pay, setPay] = useState(false);
 
     return (
         <div>
-            <Container>
-                <Img src="./old.png"></Img>
-                <Title>
-                    <Bold>{searchParams.get("who") || "엄마"}</Bold>님이{" "}
-                    <Bold>{searchParams.get("detail")}</Bold> 결제를
-                    요청하셨습니다.
-                </Title>
+            {!pay && (
+                <Container>
+                    <Img src="./old.png"></Img>
+                    <Title>
+                        <Bold>{searchParams.get("who") || "엄마"}</Bold>님이{" "}
+                        <Bold>{searchParams.get("detail")}</Bold> 결제를
+                        요청하셨습니다.
+                    </Title>
 
-                <p>결제 수단 선택</p>
-                <Pay>
-                    <div>
-                        <form>
-                            <PayBox>
-                                <input type="radio" name="pay" id="신용카드" />
-                                <label for="신용카드">신용카드</label>
-                            </PayBox>
-                            <PayBox>
-                                <input
-                                    type="radio"
-                                    name="pay"
-                                    id="무통장입금"
-                                />
-                                <label for="무통장입금">무통장 입금</label>
-                            </PayBox>
+                    <p>결제 수단 선택</p>
+                    <Pay>
+                        <div>
+                            <form>
+                                <PayBox>
+                                    <input
+                                        type="radio"
+                                        name="pay"
+                                        id="신용카드"
+                                    />
+                                    <label for="신용카드">신용카드</label>
+                                </PayBox>
+                                <PayBox>
+                                    <input
+                                        type="radio"
+                                        name="pay"
+                                        id="무통장입금"
+                                    />
+                                    <label for="무통장입금">무통장 입금</label>
+                                </PayBox>
 
-                            <PayBox>
-                                <input type="radio" name="pay" id="계좌이체" />
-                                <label for="계좌이체">계좌이체</label>
-                            </PayBox>
-                            <PayBox>
-                                <input
-                                    type="radio"
-                                    name="pay"
-                                    id="네이버페이"
-                                />
-                                <label for="네이버페이">네이버페이</label>
-                            </PayBox>
-                            <PayBox>
-                                <input
-                                    type="radio"
-                                    name="pay"
-                                    id="카카오페이"
-                                />
-                                <label for="카카오페이">카카오페이</label>
-                            </PayBox>
-                            <PayBox>
-                                <input type="radio" name="pay" id="토스" />
-                                <label for="토스">토스</label>
-                            </PayBox>
-                            <PayBox>
-                                <input type="radio" name="pay" id="페이코" />
-                                <label for="페이코">페이코</label>
-                            </PayBox>
-                        </form>
-                    </div>
-                </Pay>
-                <PayBtn>
-                    <a href="https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay/done">
-                        결제하기
-                    </a>
-                </PayBtn>
-            </Container>
+                                <PayBox>
+                                    <input
+                                        type="radio"
+                                        name="pay"
+                                        id="계좌이체"
+                                    />
+                                    <label for="계좌이체">계좌이체</label>
+                                </PayBox>
+                                <PayBox>
+                                    <input
+                                        type="radio"
+                                        name="pay"
+                                        id="네이버페이"
+                                    />
+                                    <label for="네이버페이">네이버페이</label>
+                                </PayBox>
+                                <PayBox>
+                                    <input
+                                        type="radio"
+                                        name="pay"
+                                        id="카카오페이"
+                                    />
+                                    <label for="카카오페이">카카오페이</label>
+                                </PayBox>
+                                <PayBox>
+                                    <input type="radio" name="pay" id="토스" />
+                                    <label for="토스">토스</label>
+                                </PayBox>
+                                <PayBox>
+                                    <input
+                                        type="radio"
+                                        name="pay"
+                                        id="페이코"
+                                    />
+                                    <label for="페이코">페이코</label>
+                                </PayBox>
+                            </form>
+                        </div>
+                    </Pay>
+                    <PayBtn onClick={setPay(true)}>결제하기</PayBtn>
+                </Container>
+            )}
+            {pay && <Done></Done>}
         </div>
     );
 }
