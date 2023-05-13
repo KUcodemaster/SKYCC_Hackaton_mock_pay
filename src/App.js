@@ -6,13 +6,12 @@ import { useLocation, useSearchParams } from "react-router-dom";
 function App() {
     const [searchParams, setSearchParams] = useSearchParams();
 
-    //http://localhost:3000/?who=%EC%97%84%EB%A7%88&detail=%EC%84%9C%EC%9A%B8-%EB%B6%80%EC%82%B0%20KTX
     return (
         <div>
             <Container>
-                <Img src="/old.png"></Img>
+                <Img src="./old.png"></Img>
                 <Title>
-                    <Bold>{searchParams.get("who")}</Bold>님이{" "}
+                    <Bold>{searchParams.get("who") || "엄마"}</Bold>님이{" "}
                     <Bold>{searchParams.get("detail")}</Bold> 결제를
                     요청하셨습니다.
                 </Title>
@@ -66,7 +65,9 @@ function App() {
                     </div>
                 </Pay>
                 <PayBtn>
-                    <a href="/done">결제하기</a>
+                    <a href="https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay/done">
+                        결제하기
+                    </a>
                 </PayBtn>
             </Container>
         </div>

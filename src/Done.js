@@ -25,7 +25,7 @@ export default function Done() {
                         paddingTop: "96px",
                     }}
                 >
-                    <Img src="checked.png" />
+                    <Img src="./checked.png" />
                     결제가 완료되었습니다!
                 </div>
             </H1>
