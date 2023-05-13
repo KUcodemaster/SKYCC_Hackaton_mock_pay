@@ -3,7 +3,6 @@ import Confetti from "react-confetti";
 import React from "react";
 
 export default function Done() {
-    // const { width, height } = useWindowSize();
     return (
         <div
             style={{

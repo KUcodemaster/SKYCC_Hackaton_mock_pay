@@ -24,13 +24,6 @@ root.render(
                         "https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay"
                     }
                 />
-                <Route
-                    path="/done"
-                    element={<Done />}
-                    basename={
-                        "https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay"
-                    }
-                />
             </Routes>
         </HashRouter>
     </React.StrictMode>

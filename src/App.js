@@ -16,8 +16,10 @@ function App() {
                     <Img src="./old.png"></Img>
                     <Title>
                         <Bold>{searchParams.get("who") || "엄마"}</Bold>님이{" "}
-                        <Bold>{searchParams.get("detail")}</Bold> 결제를
-                        요청하셨습니다.
+                        <Bold>
+                            {searchParams.get("detail") || "서울-부산 KTX"}
+                        </Bold>{" "}
+                        결제를 요청하셨습니다.
                     </Title>
 
                     <p>결제 수단 선택</p>
@@ -80,7 +82,13 @@ function App() {
                             </form>
                         </div>
                     </Pay>
-                    <PayBtn onClick={setPay(true)}>결제하기</PayBtn>
+                    <PayBtn
+                        onClick={() => {
+                            setPay(true);
+                        }}
+                    >
+                        결제하기
+                    </PayBtn>
                 </Container>
             )}
             {pay && <Done></Done>}
