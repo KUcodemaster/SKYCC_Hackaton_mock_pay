@@ -16,8 +16,14 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App />} />
-                <Route path="/done" element={<Done />} />
+                <Route
+                    path="https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay/"
+                    element={<App />}
+                />
+                <Route
+                    path="https://kucodemaster.github.io/SKYCC_Hackaton_mock_pay//done"
+                    element={<Done />}
+                />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
